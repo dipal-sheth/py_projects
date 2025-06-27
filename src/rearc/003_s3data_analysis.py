@@ -5,11 +5,9 @@ from pyspark.sql.types import *
 
 spark = SparkSession.builder.appName("rearc_code").getOrCreate()
 
-# Replace with your actual S3 paths
 s3_jsonl_path = "s3://file-importer-qa/dipal_poc/population_data.jsonl"
 s3_csv_path = "s3a://file-importer-qa/dipal_poc/bls_data.csv"
 
-# Read JSONL file from S3
 df_pop_raw = spark.read.json(s3_jsonl_path)
 
 df_pop_raw = df_pop_raw.toDF(*[col.strip().replace(" ", "") for col in df_pop_raw.columns])
@@ -20,7 +18,7 @@ df_report_1 = df_pop_raw.filter((col("IDYear") >= 2013) & (col("IDYear") <= 2018
                         .select(mean("Population"), stddev("Population"))
 df_report_1.show()
 
-# Define schema for time series data
+
 schema = StructType([
     StructField("series_id", StringType(), True),
     StructField("year", StringType(), True),
@@ -29,7 +27,6 @@ schema = StructType([
     StructField("footnote_codes", StringType(), True)
 ])
 
-# Read CSV file from S3
 df_ts_raw = spark.read.csv(
     s3_csv_path,
     sep="\t",
