@@ -1,6 +1,7 @@
 provider "aws" {
   region = "us-east-1"
 }
+# provider.tf file needed
 
 resource "aws_sqs_queue" "s3_event_queue" {
   name = "dipal-sqs-queue"
