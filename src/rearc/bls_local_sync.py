@@ -8,7 +8,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # BLS requires User-Agent with contact info
 HEADERS = {
-    "User-Agent": "BLSDataSync/1.0 (your_email@example.com)"
+    "User-Agent": "BLSDataSync/1.0 (dip2002@gmail.com)"
 }
 
 def list_remote_files(base_url):
