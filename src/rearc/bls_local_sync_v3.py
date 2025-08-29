@@ -68,6 +68,7 @@ def download_file(file_url, local_path):
         print(f"Downloaded: {local_path}")
     except Exception as e:
         print(f"Failed to download {file_url} to {local_path}: {e}")
+        
 def sync_files(base_url, dest_dir, concurrency=4, delete=False):
     remote_files = list_remote_files(base_url)
     remote_names = {name for name, _ in remote_files}

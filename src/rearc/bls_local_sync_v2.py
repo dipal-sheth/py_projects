@@ -3,7 +3,7 @@ import os
 import re
 from bs4 import BeautifulSoup
 
-SOURCE_URL = 'https://download.bls.gov/pub/time.series/pr/'
+SOURCE_URL = 'http://download.bls.gov/pub/time.series/pr/'
 LOCAL_DIR = 'src/rearc/data/bls_data'
 USER_AGENT = 'dipal1712@gmail.com Python sync script (for BLS policy compliance)'
 
