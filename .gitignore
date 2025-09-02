@@ -2,3 +2,4 @@
 /.idea
 /src/rearc/terraform/.terraform
 /src/rearc/data/
+/lambda_layer/
