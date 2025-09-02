@@ -5,8 +5,9 @@ from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from concurrent.futures import ThreadPoolExecutor, as_completed
 # BLS requires a User-Agent header to avoid 403 Forbidden errors.
+# python src\rearc\bls_local_sync_v3.py --base-url http://download.bls.gov/pub/time.series/pr/ --dest-dir src\rearc\data\bls_data --concurrency 6
 HEADERS = {
-    "User-Agent": "BLSDataSync/1.0 (Dipal.Sheth@outlook.com)"
+    "User-Agent": "BLSDataSync/1.0 (Dipal.kiran@gmail.com)"
 }
 def list_remote_files(base_url):
     print(f"Listing remote files from {base_url}...")
@@ -68,7 +69,7 @@ def download_file(file_url, local_path):
         print(f"Downloaded: {local_path}")
     except Exception as e:
         print(f"Failed to download {file_url} to {local_path}: {e}")
-        
+
 def sync_files(base_url, dest_dir, concurrency=4, delete=False):
     remote_files = list_remote_files(base_url)
     remote_names = {name for name, _ in remote_files}
