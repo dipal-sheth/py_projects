@@ -8,7 +8,7 @@ resource "aws_sqs_queue" "s3_event_queue" {
 }
 
 resource "aws_s3_bucket" "data_bucket" {
-  bucket = "dipal-projects-bucket"
+  bucket = "dipal-poc-projects"
   force_destroy = true
 }
 
